@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
 import Cart from "./components/Cart";
+import { MyShop } from "./context/MyWeb";
 
 const App = () => {
+  let {isCartOpen, cartItem}=useContext(MyShop)
+
   let products = [
       {
         id: 1,
@@ -219,34 +222,29 @@ const App = () => {
     
   ];
 
-  const [isCartOpen, setIsCartOpen]= useState(false)
-  const [cartItem ,setCartItem]=useState([])
   console.log("cart state->", cartItem)
   return (
     <div className="h-schreen flex flex-col gap-4">
       <Navbar 
-      setIsCartOpen={setIsCartOpen}
+     
       />
 
    {
     isCartOpen ? (
       <div>
         <Cart
-        cartItem={cartItem}
+      
         />
       </div>
     ):(
       <div> 
  <ProductCard
- setCartItem = {setCartItem}
+ 
     products={products}
   />
     </div>
     )
    }
-
-   
-      
     
     </div>
   );

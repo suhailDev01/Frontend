@@ -1,7 +1,9 @@
 
-import React from "react";
+import React, { useContext } from "react";
+import { MyShop } from "../context/MyWeb";
 
-const Cart = ({ cartItem = [] }) => {
+const Cart = () => {
+  let {cartItem}= useContext(MyShop)
   const totalPrice = cartItem.reduce(
     (total, item) => total + item.price * (item.quantity || 1),
     0

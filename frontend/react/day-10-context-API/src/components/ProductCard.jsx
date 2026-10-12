@@ -1,7 +1,9 @@
 
-import React from "react";
+import React, { useContext } from "react";
+import { MyShop } from "../context/MyWeb";
 
-const ProductCard = ({ products,setCartItem }) => {
+const ProductCard = ({ products}) => {
+   let {setCartItem}=useContext(MyShop)
   return (
     <div className="min-h-screen bg-gray-50">
      
