@@ -6,18 +6,14 @@ import { ContextProvider, MyStore } from './context/MyContext'
 
 const App = () => {
   console.log("app rendering")
-  let data = useContext(MyStore)
-  console.log(data)
  
   return (
     <div>
       Hello
       
-      <ContextProvider>
+     
             <Home />
              <About />
-      </ContextProvider>
-     
      
       <Contact />
     </div>
