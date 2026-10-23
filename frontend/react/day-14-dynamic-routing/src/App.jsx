@@ -1,11 +1,14 @@
 import React from 'react'
+import Navbar from './components/Navbar'
+import AppRoutes from './routes/AppRoutes'
 
 const App = () => {
-  return (
-    <div>
-      <h1>Dynamic Routing</h1>
+return (
+   <div className="">
+   <Navbar /> 
+   <AppRoutes />
     </div>
-  )
+)
 }
 
 export default App
