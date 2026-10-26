@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -36,9 +37,11 @@ const Navbar = () => {
         </div>
 
         {/* Sign In Button */}
-        <button className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+        <Link
+        to="/signin"
+         className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
           Sign In
-        </button>
+        </Link>
 
       </div>
     </nav>
