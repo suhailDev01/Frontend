@@ -32,7 +32,8 @@ const Navbar = () => {
         </div>
 
         {/* Right: Sign In */}
-        <button className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
+        <button
+         className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
           Sign In
         </button>
 

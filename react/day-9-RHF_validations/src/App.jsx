@@ -24,7 +24,7 @@ const App = () => {
     const [users, setUsers] = useState(() => {
    return JSON.parse(localStorage.getItem("users")) || []
     })
-   console.log(users)
+   //console.log(users)
 
    const [updatedData, setupdatedData] = useState(null)
    

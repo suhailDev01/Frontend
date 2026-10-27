@@ -5,10 +5,13 @@ import ProductCard from './components/ProductCard'
 import CartScreen from './pages/CartScreen'
 import Hero from './components/Hero'
 import { MyStore } from './context/MyContext'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
 
 const App = () => {
-  let {IsCartOpen, cartItem} = useContext(MyStore)
+  let {IsCartOpen, cartItem, toggle} = useContext(MyStore)
   const [productsData, setProductsData] = useState([])
+
  
    
   console.log(productsData)
@@ -50,6 +53,10 @@ const App = () => {
    </div>
     )
  }
+
+  {
+    toggle ? <SignUp /> : <Login />
+  }
     </div>
   )
 }

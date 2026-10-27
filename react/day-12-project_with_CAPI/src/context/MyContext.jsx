@@ -6,6 +6,7 @@ export const ContextProvider = ({children})=>{
 
      const [IsCartOpen, setIsCartOpen] = useState(false)
       const [cartItem, setCartItem] = useState([])
+      const [toggle, setToggle] = useState(false)
           console.log(cartItem)
 
            const incrementQuantity = (id) =>{
@@ -29,7 +30,9 @@ export const ContextProvider = ({children})=>{
      cartItem,
       setCartItem, 
      incrementQuantity,
-     decrementQuantity}}>
+     decrementQuantity,
+     toggle,
+     setToggle}}>
         {children}
     </MyStore.Provider>
 }
