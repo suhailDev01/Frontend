@@ -1,7 +1,20 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router'
+import {useForm} from 'react-hook-form'
 
 const Register = () => {
+
+  const {register,
+    reset,
+    handleSubmit,
+    formState:{errors}
+     } = useForm()
+    
+  let navigate = useNavigate();
+  let formSubmit= (data)=>{
+   console.log(data)
+  reset()
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950 px-4 py-10">
 
@@ -23,38 +36,61 @@ const Register = () => {
         </div>
 
         {/* Register Form */}
-        <form className="space-y-4">
+        <form
+        onSubmit={handleSubmit(formSubmit)}
+         className="space-y-4">
 
           <div>
             <label className="text-sm text-slate-300">Full Name</label>
-            <input
+            <input 
+            {...register("name", {
+              required: "name is required",
+            })}
               type="text"
               placeholder="Enter your full name"
               className="w-full mt-2 p-3 rounded-lg bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500"
             />
+            {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
           </div>
 
           <div>
             <label className="text-sm text-slate-300">Email Address</label>
             <input
+             {...register("email", {
+              required: "email is required",
+            })}
               type="email"
               placeholder="Enter your email"
               className="w-full mt-2 p-3 rounded-lg bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500"
             />
+             {errors.email && <p className='text-red-600'>{errors.email.message}</p>}
           </div>
 
           <div>
             <label className="text-sm text-slate-300">Password</label>
             <input
+             {...register("password", {
+              required: "password is required",
+              minLength:{value: 6, 
+                message: "minimum  length is 6"
+              },
+            })}
               type="password"
               placeholder="Create a password"
               className="w-full mt-2 p-3 rounded-lg bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500"
             />
+             {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
           </div>
 
           <div>
             <label className="text-sm text-slate-300">Confirm Password</label>
             <input
+             {...register("password", {
+              required: "password is required",
+              minLength:{value: 6, 
+                message: "minimum  length is 6"
+              },
+            })}
               type="password"
               placeholder="Confirm your password"
               className="w-full mt-2 p-3 rounded-lg bg-slate-800 border border-slate-700 text-white outline-none focus:border-indigo-500"
@@ -62,6 +98,7 @@ const Register = () => {
           </div>
 
           <button
+             
             type="submit"
             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition"
           >
@@ -73,9 +110,11 @@ const Register = () => {
         {/* Login p */}
         <p className="text-center text-slate-400 text-sm mt-7">
           Already have an account?{' '}
-          <p className="text-indigo-400 font-semibold hover:underline">
+          <button
+            onClick={()=>navigate("/")}
+          className="text-indigo-400 font-semibold hover:underline">
             Login
-          </p>
+          </button>
         </p>
 
       </div>
